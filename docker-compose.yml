@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  db:
+    build: db
+
+  py-srv:
+    build: py-srv
+    ports:
+      - "80:6543"
+    depends_on:
+      - db
+    links:
+      - "db:db"
